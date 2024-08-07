@@ -36,7 +36,7 @@ def increase_score4():
 
 def increase_score8():
     global Score
-    Score += 8
+    Score += 7
     Scorecount.config(text = Score)
     if Target == Score:
         window.destroy()

@@ -41,6 +41,9 @@ def increase_score8():
     if Target == Score:
         window.destroy()
 
+Score2 = ("Current score is: " + str(Score))
+Target2 = ("The target number is: " + str(Target))
+
 
 #Setup for GUI
 window = tk.Tk()
@@ -58,12 +61,12 @@ window.rowconfigure(2,weight=1)
 window.rowconfigure(3,weight=1)
 
 #Creating buttons
-Redbutton = tk.Button(background= 'red', text = '2', fg= 'black', font= 'bold', command = increase_score2)
-Bluebutton = tk.Button(background= 'blue', text = '5', fg= 'black', font= 'bold', command = increase_score5)
-Greenbutton = tk.Button(background= 'green', text = '4', fg= 'black', font = 'bold', command = increase_score4)
-Yellowbutton = tk.Button(background= 'yellow', text = '8', fg= 'black', font= 'bold', command = increase_score8)
-Scorecount = tk.Label(text = Score, font = 90)
-Targetnumber = tk.Label(text = Target, font = 90)
+Redbutton = tk.Button(background= 'red', text = '2', fg= 'black', font= 180, command = increase_score2)
+Bluebutton = tk.Button(background= 'blue', text = '5', fg= 'black', font= 180, command = increase_score5)
+Greenbutton = tk.Button(background= 'green', text = '4', fg= 'black', font = 180, command = increase_score4)
+Yellowbutton = tk.Button(background= 'yellow', text = '8', fg= 'black', font= 180, command = increase_score8)
+Scorecount = tk.Label( text = Score2, font = 90)
+Targetnumber = tk.Label(text = Target2, font = 90)
 
 #Putting buttons in place
 Redbutton.grid(row=0, column=0, sticky ='nesw')

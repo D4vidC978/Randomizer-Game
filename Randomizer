@@ -1,10 +1,18 @@
 import tkinter as tk
 import random
 
+
+#Setup for GUI
+window = tk.Tk()
+window.title("Get the Number")
+window.geometry('800x600')
+window.configure(bg = 'white')
+
 global Score
 Score = 0 
 global Target
 Target = 0
+
 
 def getTarget():
     global Target
@@ -16,40 +24,32 @@ getTarget()
 def increase_score2():
     global Score
     Score += 2
-    Scorecount.config(text = Score)
+    Scorecount.config(text = Score2)
     if Target == Score:
         window.destroy()
 
 def increase_score5():
     global Score
     Score += 5
-    Scorecount.config(text = Score)
+    Scorecount.config(text = Score2)
     if Target == Score:
         window.destroy()
 
 def increase_score4():
     global Score
     Score += 4
-    Scorecount.config(text = Score)
+    Scorecount.config(text = Score2)
     if Target == Score:
         window.destroy()
 
 def increase_score8():
     global Score
-    Score += 7
-    Scorecount.config(text = Score)
+    Score += 8
+    Scorecount.config(text = Score2)
     if Target == Score:
         window.destroy()
 
-Score2 = ("Current score is: " + str(Score))
-Target2 = ("The target number is: " + str(Target))
 
-
-#Setup for GUI
-window = tk.Tk()
-window.title("Get the Number")
-window.geometry('800x600')
-window.configure(bg = 'white')
 
 #Define a grid for GUI
 window.columnconfigure(0, weight=1)
@@ -61,12 +61,21 @@ window.rowconfigure(2,weight=1)
 window.rowconfigure(3,weight=1)
 
 #Creating buttons
-Redbutton = tk.Button(background= 'red', text = '2', fg= 'black', font= 180, command = increase_score2)
-Bluebutton = tk.Button(background= 'blue', text = '5', fg= 'black', font= 180, command = increase_score5)
-Greenbutton = tk.Button(background= 'green', text = '4', fg= 'black', font = 180, command = increase_score4)
-Yellowbutton = tk.Button(background= 'yellow', text = '8', fg= 'black', font= 180, command = increase_score8)
-Scorecount = tk.Label( text = Score2, font = 90)
+Redbutton = tk.Button(background= 'red', text = '2', fg= 'black', font= 'bold', command = increase_score2)
+Bluebutton = tk.Button(background= 'blue', text = '5', fg= 'black', font= 'bold', command = increase_score5)
+Greenbutton = tk.Button(background= 'green', text = '4', fg= 'black', font = 'bold', command = increase_score4)
+Yellowbutton = tk.Button(background= 'yellow', text = '8', fg= 'black', font= 'bold', command = increase_score8)
+
+#Labels for Target value and Cuurrent value
+Score2 = ("Your current value is: " + str(Score))
+Target2 = ("Your target value is: " + str(Target))
+
+
+#Labels for score count and target number in Tkinter grid
+Scorecount = tk.Label( text = Score, font = 90)
 Targetnumber = tk.Label(text = Target2, font = 90)
+
+Scorecount.config(text = Score2)
 
 #Putting buttons in place
 Redbutton.grid(row=0, column=0, sticky ='nesw')
@@ -76,9 +85,7 @@ Yellowbutton.grid(row=2, column=2, sticky ='nesw')
 Scorecount.grid(row=3, column=0, sticky= 'nesw')
 Targetnumber.grid(row = 3, column=2, sticky = 'nesw')
 
-
 #Keep GUI open and close if game is won
-
 while window.mainloop():
     if Target == Score:
         window.destroy()
